@@ -1,13 +1,17 @@
 <template>
   
-  <div>Olá, mundo!</div>
-
+  <div id="app">
+    <div v-for="(pokemon, index) in pokemons" :key="index">
+      <pokemonComponent :name="pokemon.name" :url="pokemon.url" :num="index + 1"/>
+    </div>
+  </div>
 
 </template>
 
 <script>
 
 import axios from "axios";
+import pokemonComponent from "./components/pokemonComponent.vue"
 
 export default {
   name: 'App',
@@ -24,11 +28,15 @@ export default {
     document.title = 'Pokedex com Vue.js'
   },
 
+  components: {
+    
+    pokemonComponent,
+
+  },
+
   created: function(){
 
     axios.get("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0").then(response => {
-
-      console.log("Requisição dos pokemons da primeira geração")
 
       this.pokemons = response.data.results
 
