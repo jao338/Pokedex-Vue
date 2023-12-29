@@ -8,7 +8,7 @@
             <div class="media">
                 <div class="media-content">
                     <p class="title is-4">{{ num }} - {{ capitalizeName }}</p>
-                    <p class="subtitle is-6">{{ pokemon.type }}</p>
+                    <p class="subtitle is-6" style="text-align: center">{{ pokemon.type }}</p>
                 </div>
             </div>
 
